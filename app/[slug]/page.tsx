@@ -28,9 +28,9 @@ interface Category {
 }
 
 interface PageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 // Fallback data for testing

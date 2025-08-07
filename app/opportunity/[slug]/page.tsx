@@ -28,9 +28,9 @@ interface Category {
 }
 
 interface PageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 // Fetch category data
@@ -70,7 +70,7 @@ async function getOpportunitiesByCategory(categorySlug: string): Promise<Opportu
 }
 
 const CategoryPage: React.FC<PageProps> = async ({ params }) => {
-  const { slug } = params;
+  const { slug } = await params;
 
   // Fetch category and opportunities
   const [category, opportunities] = await Promise.all([

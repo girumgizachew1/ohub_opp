@@ -394,9 +394,9 @@ interface ContentfulResponse {
 }
 
 interface PageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 // Fetch guideline by slug
