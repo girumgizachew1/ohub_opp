@@ -135,6 +135,11 @@ async function getPolicyPage(slug: string): Promise<PolicyPage | null> {
 
     if (!spaceId || !accessToken) {
       console.log('Contentful not configured, returning fallback data');
+      console.log('To configure Contentful:');
+      console.log('1. Create a .env.local file in your project root');
+      console.log('2. Add CONTENTFUL_SPACE_ID=your_space_id');
+      console.log('3. Add CONTENTFUL_ACCESS_TOKEN=your_access_token');
+      console.log('4. Restart your development server');
       return getFallbackPolicyPage(slug);
     }
 
@@ -309,8 +314,30 @@ export default async function CookiePolicyPage() {
 
           {/* Content */}
           <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 lg:p-12">
+            {policyPage.id.startsWith('fallback') && (
+              <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                <div className="flex items-center gap-2 mb-2">
+                  <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span className="text-blue-800 font-semibold">Contentful Not Configured</span>
+                </div>
+                <p className="text-blue-700 text-sm">
+                  This is fallback content. To display content from Contentful, please configure your environment variables and create the content in Contentful.
+                </p>
+                <div className="mt-3">
+                  <a 
+                    href="/api/test-contentful" 
+                    target="_blank" 
+                    className="text-blue-600 hover:text-blue-800 text-sm font-medium underline"
+                  >
+                    Test Contentful Connection →
+                  </a>
+                </div>
+              </div>
+            )}
             <div 
-              className="prose prose-slate max-w-none prose-headings:text-slate-900 prose-p:text-slate-600 prose-li:text-slate-600 prose-strong:text-slate-900 prose-code:text-slate-800 prose-code:bg-slate-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded"
+              className="prose prose-slate max-w-none prose-headings:text-slate-900 prose-p:text-slate-600 prose-li:text-slate-600 prose-strong:text-slate-900 prose-code:text-slate-800 prose-code:bg-slate-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-ul:list-disc prose-ul:pl-6 prose-ol:list-decimal prose-ol:pl-6 prose-li:mb-2"
               dangerouslySetInnerHTML={{ __html: policyPage.content }}
             />
           </div>

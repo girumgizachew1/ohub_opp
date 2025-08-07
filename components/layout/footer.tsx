@@ -236,10 +236,10 @@ const Footer: React.FC = () => {
               © {currentYear} <span className="font-semibold">OHUB</span>. All Rights Reserved.
             </div>
             <div className="flex flex-wrap gap-6 text-sm text-gray-600">
-              <Link href="/privacy" className="hover:text-gray-900 transition-colors">
+              <Link href="/privacy-policy" className="hover:text-gray-900 transition-colors">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="hover:text-gray-900 transition-colors">
+              <Link href="/term-of-service" className="hover:text-gray-900 transition-colors">
                 Terms of Service
               </Link>
               <Link href="/cookies" className="hover:text-gray-900 transition-colors">

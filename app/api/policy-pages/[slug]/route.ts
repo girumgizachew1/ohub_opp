@@ -148,7 +148,14 @@ function getFallbackPolicyPage(slug: string): PolicyPage | null {
         <p>We implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.</p>
         
         <h2>5. Your Rights</h2>
-        <p>You have the right to access, update, or delete your personal information. You can also opt out of marketing communications at any time.</p>
+        <p>You have the right to:</p>
+        <ul>
+          <li>Access your personal information</li>
+          <li>Update or correct your information</li>
+          <li>Delete your personal information</li>
+          <li>Opt out of marketing communications</li>
+          <li>Request data portability</li>
+        </ul>
         
         <h2>6. Contact Us</h2>
         <p>If you have any questions about this Privacy Policy, please contact us at privacy@ohub.com.</p>
